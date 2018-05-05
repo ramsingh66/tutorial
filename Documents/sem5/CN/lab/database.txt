@@ -1,9 +1,0 @@
-000000 HP-Pavilion-g4 21000
-000001 IBM-Thinkpad   24000
-000010 SONY-Xperia    26000
-000011 Moto-G3        12500
-000100 Moto-G4        14000
-000101 Moto-G5        15000
-000110 Moto-G5+       16000
-000111 Redmi-note3    7999
-001000 Redmi-note4    13000

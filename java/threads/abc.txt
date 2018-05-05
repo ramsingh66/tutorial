@@ -1,7 +1,0 @@
-void replaceRange( String str,int startIndex, int endIndex )  replace one 
-in single replace , we will recieve the start and end index of the selected text area; 
-^^ method of textArea
-
-String  replace(old,new);      //to replace all
-in replaceAll , we wil call simply replace on String;
-hence we will store string in stringBuilder;
