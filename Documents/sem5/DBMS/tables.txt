@@ -1,0 +1,51 @@
+--------
+EMPLOYEE-
+-------
+name 
+dateOfJoining,
+EmpID(primary key ),
+Salary,
+Gender,
+DOB
+
+
+-------------
+DEPARTMENT
+------------
+Name
+DepttID(primary key)
+MangerID(Foreign key (EMPLOYEE,EmpID))
+
+
+
+
+-------------
+PRODUCT
+-------------
+Name
+ProdID (primary)
+DepttID (Fk (SHOP,ShopID))
+Price
+Brand
+QuantityInStock
+SuppID (Fk from (SUPPLIER,SuppID))
+
+
+--------------
+SUPPLIER
+--------------
+Name
+SuppID (Primary)
+Gender
+ContactInfo
+
+
+--------------
+SalesRecord
+-------------
+ProdID(Fk from PRODUCT)
+DateTime
+Units
+Price
+AmountTotal
+DepttID(Fk from Deptt)

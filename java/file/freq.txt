@@ -1,0 +1,6 @@
+harish --> 20
+ramsingh --> 20
+sawant --> 20
+name --> 60
+is --> 60
+my --> 60

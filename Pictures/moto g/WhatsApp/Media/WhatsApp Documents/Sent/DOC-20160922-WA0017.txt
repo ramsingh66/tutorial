@@ -1,0 +1,416 @@
+fp=open("input.txt","r")
+data=fp.read()
+data=data.split()
+print(len(data))
+print(fp.seek(0))
+token=[]
+global line_num
+line_num=0
+######################################################################################################
+def file():
+    ch=fp.readline()
+    ch=ch.split()
+    print(ch)
+    return ch
+######################################################################################################
+#def loop():
+ ##  print(ch)
+   # global line_num
+    #line_num+=1
+    #if len(ch)==0:
+     #   loop()
+    #elif ch[0]=="{":
+     #   while 1:
+      #      ch=file()
+       #     global line_num
+        #    line_num+=1
+         #   if len(ch)==0:
+          #      continue
+           # elif ch[0]=="}":
+            #    break
+      #      elif ch[0]=="else":
+       #         print("ERROR:unexcepted expression else without previous if\n")
+        #        print("rejected in line %d\n"%line_num)
+         #       quit()
+          #  else:
+           #     inter(line_num,ch)
+    #else:
+     #   print("ERROR:unexcepted expression\n")
+      #  print("missing character '{'")
+       # quit()
+#####################################################################################################        
+#def while_cond(list,ch,line_num):
+ #   if len(ch)==1:
+  #      if isinstance(num(ch[0]),int):
+   #         var9=1
+    #    elif ch[0].isidentifier() and ch[0] in list:
+     #       var9=3
+      #  else:
+       #     print("ERROR:unexcepted expression\n")
+        #    print("rejected in line %d\n"%line_num)
+         #   quit()
+#    elif ch[0].isidentifier() or isinstance(num(ch[0]),int) or isinstance(num(ch[0]),float):
+ #       if ch[1]=="=":
+  #          if isinstance(num(ch[0]),int) or isinstance(num(ch[0]),float):
+   #             print("ERROR:unexcepted expression\n")
+    #            print("rejected in line %d\n"%line_num)
+     #           quit()
+      #  elif ch[1]!="=" and ch[1]!="==" and ch[1]!="!=" and ch[1]!=">=" and ch[1]!="<=" and ch[1]!="<" and ch[1]!=">":
+       #     print("ERROR:unexcepted expression\n")
+        #    print("rejected in line %d\n"%line_num)
+         #   quit()
+        #else:
+#            if ch[1]=="==" or ch[1]=="!=" or ch[1]==">=" or ch[1]=="<=" or ch[1]=="<" or ch[1]==">":
+ #               if ch[0] not in list:
+  #                  print("ERROR:unexcepted expression variable not declared before\n")
+   #                 print("rejected in line %d\n"%line_num)
+    #                quit()
+     #       i=2
+      #      if i>=len(ch):
+       #         print("ERROR:unexcepted expression\n")
+        #        print("rejected in line %d\n"%line_num)
+         #       quit()
+          #  while i<len(ch):
+           #     if ch[i].isidentifier():
+            #        if ch[i] not in list:
+             #           print("ERROR:variable not declared before\n")
+              #          print("rejected in line %d\n"%line_num)
+               #         quit()
+                #    else:
+#                        token.append(ch[i])
+ #                       if i+1<len(ch):
+  #                          var=operator(ch[i+1])
+   #                         if var==1:
+    #                            if i+2>=len(ch):
+     #                               print("ERROR:unexcepted expression\n")
+      #                              print("rejected in line %d\n"%line_num)
+       #                             quit()    
+        #                    else:
+         #                       print("ERROR:unexcepted expression\\use operator\n")
+          #                      print("rejected in line %d\n"%line_num)
+           #                     quit()
+            #        i+=2
+             #   elif isinstance(num(ch[i]),int):
+              #      token.append(ch[i])
+#                    if i+1<len(ch):
+ #                           var=operator(ch[i+1])
+  #                          if var==1:
+   #                             if i+2>=len(ch):
+    #                                print("ERROR:unexcepted expression\n")
+     #                               print("rejected in line %d\n"%line_num)
+      #                              quit()
+       #                     else:
+        #                        print("ERROR:unexcepted expression\\use operator\n")
+         #                       print("rejected in line %d\n"%line_num)
+          #                      quit()
+           #         i+=2
+            #    elif isinstance(num(ch[i]),float):
+             #       token.append(ch[i])
+              #      if i+1<len(ch):
+               #             var=operator(ch[i+1])
+                #            if var==1:
+                 #               if i+2>=len(ch):
+                  #                  print("ERROR:unexcepted expression\n")
+                   #                 print("rejected in line %d\n"%line_num)
+                    #                quit()
+                     #       else:
+                      #          print("ERROR:unexcepted expression\\use operator\n")
+                       #         print("rejected in line %d\n"%line_num)
+                        #        quit()
+#                    i+=2
+ #               else:
+  #                  print("ERROR:unexcepted expression\n")
+   #                 print("rejected in line %d\n"%line_num)
+    #                quit()
+#    else:
+ #       print("ERROR:unexcepted expression\n")
+  #      print("rejected in line %d\n"%line_num)
+   #     quit()
+    #
+def operator(ch):
+    var=0
+    if ch=='+' or ch=='-' or ch=='*' or ch=='/' or ch=='%':
+        var=1
+    return var
+
+def num(ch):
+    try: return int(ch)
+    except ValueError:
+        try: return float(ch)
+        except ValueError:
+            return ch
+#######################################################################################################
+def inter(line_num,ch):
+    var3=0
+    if len(ch)==0:
+        var3=1
+    elif ch[0]=="begin":
+        if len(ch)!=1:###### it was 2 before
+            print("rejected in line %d\n"%line_num)
+            quit()
+        elif line_num!=1:
+            print("rejected in line %d\n"%line_num)
+            quit()
+        #elif ch[1].isidentifier():
+         #   token.append(ch[1])
+        else:
+            print("xxxxxxxxxxxxxxxxxx")#print("ERROR:unexcepted expression  identifier not used\n")
+            #print("rejected in line %d\n"%line_num)
+            #quit()
+    elif ch[0].isidentifier() and ch[0]!="out" and ch[0]!="end" and ch[0]!="while" and ch[0]!="for" and ch[0]!="if" and ch[0]!="else":
+        list.append(ch[0])
+        if(len(ch)==1):
+            return
+        elif ch[1]!='=':
+            i=1
+            while i<len(ch):
+                if ch[i].isidentifier():
+                    if ch[i] not in list:
+                        print("ERROR:variable not declared before\n")
+                        print("rejected in line %d\n"%line_num)
+                        quit()
+                        #list.append(ch[i])
+                        #token.append(ch[i])
+                    else:
+                        token.append(ch[i])
+                else:
+                        print("unexpected expression\n")
+                        print("rejected in line %d\n"%line_num)
+        #elif ch[1]!="=":
+            
+         #   print("ERROR:unexcepted expression\n")
+          #  print("rejected in  line %d\n"%line_num)
+           # quit()
+        else:
+            i=2
+            #if ch[1].isidentifier()==0:
+             #   print("ERROR:unexcepted expression\n")
+              #  print("rejected in line %d\n"%line_num)
+               # quit()
+            while i<len(ch):
+                if ch[i].isidentifier():
+                    if ch[i] not in list:
+                        print("ERROR:variable not declared before\n")
+                        print("rejected in line %d\n"%line_num)
+                        quit()
+                    else:
+                        token.append(ch[i])
+                        if i+1<len(ch):
+                            var=operator(ch[i+1])
+                            if var==1:
+                                if i+2>=len(ch):
+                                    print("ERROR:unexcepted expression\n")
+                                    print("rejected in line %d\n"%line_num)
+                                    quit()    
+                            else:
+                                print("ERROR:unexcepted expression\\use operator\n")
+                                print("doubted or rejected in line %d\n"%line_num)
+                                quit()
+                    i+=1
+                elif isinstance(num(ch[i]),int):
+                    token.append(ch[i])
+                    if i+1<len(ch):
+                            var=operator(ch[i+1])
+                            if var==1:
+                                if i+2>=len(ch):
+                                    print("ERROR:unexcepted expression\n")
+                                    print("rejected in aaaaaaaaaa line %d\n"%line_num)
+                                    quit()
+                            else:
+                                print("ERROR:unexcepted expression\\use operator\n")
+                                print("rejected in line %d\n"%line_num)
+                                quit()
+                    i+=2
+                elif isinstance(num(ch[i]),float):
+                    token.append(ch[i])
+                    if i+1<len(ch):
+                            var=operator(ch[i+1])
+                            if var==1:
+                                if i+2>=len(ch):
+                                    print("ERROR:unexcepted expression\n")
+                                    print("rejected in bbbbbbbbb line %d\n"%line_num)
+                                    quit()
+                            else:
+                                print("ERROR:unexcepted expression\\use operator\n")
+                                print("rejected in line %d\n"%line_num)
+                                quit()
+                    i+=2
+                else:
+                    print("ERROR:unexcepted expression\n")
+                    print(i,"rejected in ccccccccccccccccccccline %d\n"%line_num)
+                    quit()
+    elif ch[0]=="out":##write it should be
+        if ch[1]!="$":### ' it has to be
+            print("ERROR:unexcepted expression missing $\n")
+            print("rejected in line %d\n"%line_num)
+            quit()
+        else:
+            if ch[2].isidentifier():
+                if ch[2] not in list:
+                    print("ERROR:variable not declared before\n")
+                    print("rejected in line %d\n"%line_num)
+                    quit()
+                elif len(ch)>3 and ch[3]=="+":
+                    if ch[4].isidentifier():
+                        if ch[4] not in list:
+                            print("ERROR:variable not declared before\n")
+                            print("rejected in line %d\n"%line_num)
+                            quit()
+                    elif ch[4]=='"':
+                        if '"' in ch[5:]:
+                            var34=1
+                        else:
+                            print("ERROR:unexcepted expression\n")
+                            print("rejected in line %d\n"%line_num)
+                            quit()
+                    else:
+                        print("ERROR:unexcepted expression\n")
+                        print("rejected in line %d\n"%line_num)
+                        quit()
+                if len(ch)>3 and ch[3]!="+":
+                    print("ERROR:unexcepted expression\n")
+                    print("rejected in line %d\n"%line_num)
+                    quit()
+            elif ch[2]=='"':
+                if len(ch)>3 and '"' in ch[3:]:
+                    var3=ch[3:].index('"')
+                    index=var3+3
+                else:
+                    print("ERROR:unexcepted expression\n")
+                    print("rejected in line %d\n"%line_num)
+                    quit()
+                if len(ch)>(index+1) and ch[index+1]=="+":
+                    if ch[index+2].isidentifier():
+                        if ch[index+2] not in list:
+                            print("ERROR:variable not declared before\n")
+                            print("rejected in line %d\n"%line_num)
+                            quit()
+                    elif ch[index+2]=='"':
+                        if '"' in ch[index+3:]:
+                            var34=1
+                        else:
+                            print("ERROR:unexcepted expression\n")
+                            print("rejected in line %d\n"%line_num)
+                            quit()
+                    else:
+                        print("ERROR:variable not declared before\n")
+                        print("rejected in line %d\n"%line_num)
+                        quit()
+                else:
+                    print("ERROR:unexcepted expression character not defined\n")
+                    print("rejected in line %d\n"%line_num)
+                    quit()
+                    
+            else:
+                print("ERROR:unexcepted expression character not defined\n")
+                print("rejected in line %d\n"%line_num)
+                quit()
+    #elif ch[0]=="while":
+     #   if len(ch)<4:
+      #      print("ERROR:unexcepted expression \n")
+       #     print("rejected in line %d\n"%line_num)
+      #      quit()
+       # elif ch[1]!="(" and ch[len(ch)-1]!=")":
+        #    print("ERROR:unexcepted expression \n")
+         #   print("rejected in line %d\n"%line_num)
+          #  quit()
+       # else:
+        #    while_cond(list,ch[2:len(ch)-1],line_num)
+        #loop()
+   
+  #  elif ch[0]=="for":
+   #     if ch[1].isidentifier() and ch[2]=="in" and ch[3]=="range":
+    #        if ch[4]!="(" and ch[len(ch)-1]!=")":
+     #           print("ERROR:unexcepted expression \n")
+      #          print("rejected in line %d\n"%line_num)
+       #         quit()
+        #    else:
+         #       if isinstance(num(ch[5]),int) and ch[6]=="," and isinstance(num(ch[7]),int):
+          #          var4=2
+           #     else:
+            #        print("ERROR:unexcepted expression \n")
+             #       print("rejected in line %d\n"%line_num)
+              #      quit()
+        #else:
+         #   print("ERROR:unexcepted expression \n")
+          #  print("rejected in line %d\n"%line_num)
+           # quit()
+       # loop()
+   # elif ch[0]=="if":
+    #    zero.append(ch[0])
+     #   if len(ch)<4:
+      #      print("ERROR:unexcepted expression \n")
+       #     print("rejected in line %d\n"%line_num)
+        #    quit()
+       # elif ch[1]!="(" and ch[len(ch)-1]!=")":
+        #    print("ERROR:unexcepted expression \n")
+         #   print("rejected in line %d\n"%line_num)
+          #  quit()
+      #  else:
+       #     while_cond(list,ch[2:len(ch)-1],line_num)
+        #loop()
+    #elif len(ch)>1 and ch[0]=="else" and ch[1]=="if":
+     #   if "if" not in zero:
+      #      print("ERROR:unexcepted expression else without previous if \n")
+       #     print("rejected in line %d\n"%line_num)
+        #    quit()
+       # elif len(ch)<5:
+        #    print("ERROR:unexcepted expression \n")
+         #   print("rejected in line %d\n"%line_num)
+         #   quit()
+        #elif ch[2]!="(" and ch[len(ch)-1]!=")":
+         #   print("ERROR:unexcepted expression \n")
+          #  print("rejected in line %d\n"%line_num)
+           # quit()
+ #       else:
+#            while_cond(list,ch[3:len(ch)-1],line_num)
+ #       loop()
+  #  elif ch[0]=="else":
+   #     if "if" not in zero:
+   #         print("ERROR:unexcepted expression else without previous if \n")
+    #        print("rejected in line %d\n"%line_num)
+     #       quit()
+      #  elif(len(ch)>1):
+#            print("ERROR:unexcepted expression \n")
+ #           print("rejected in line %d\n"%line_num)
+  #          quit()
+   #     loop()
+    elif ch[0]=="end":
+        for i in range(1,10):
+            ch1=file()
+            if len(ch1)!=0:
+                print("ERROR:unexcepted expression statements after end\n")
+                print("rejected in line %d\n"%line_num)
+                quit()
+                
+        print("program is accepted\n")
+        print(list,"=variables")
+        for i in range (0,len(token)-1):
+            if isinstance(num(token[i]),float):
+                print(token[i],"= float")
+            elif isinstance(num(token[i]),int):
+                print(token[i],"= integer")
+            elif token[i] not in list:
+                print(token[i],"= variable")
+        quit()
+    else:
+        print("ERROR:rejected in line %d\n"%line_num)
+        quit()
+############################################################################################################
+if data[0]!="begin":
+    print("ERROR:begin statement missing\n")
+    quit()
+elif data[len(data)-1]!="end":
+    print("ERROR:end statement missing\n")
+    quit()
+list=[]
+zero=[]
+i=1
+while i<15:
+    global line_num
+    line_num+=1
+    ch=file()
+    inter(line_num,ch)
+
+
+    

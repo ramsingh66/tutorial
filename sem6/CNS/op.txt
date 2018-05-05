@@ -1,0 +1,21 @@
+
+
+
+
+
+int p = 200000 
+result = 1+5+5*9
+push esp 
+
+mov eax , ebx 
+add eax , 1 
+mov ebx , eax 
+
+
+pop ebp 
+
+temp 1 
+temp 2 
+
+
+2 + 3 

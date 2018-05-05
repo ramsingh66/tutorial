@@ -1,0 +1,28 @@
+****************************************** SECURITY LAB JANUARY 16 ******************************************
+
+Implement any five Cipher techniques :
+
+1). Hill
+2). Playfair
+3). Polyalphabetic
+4). Transposition technique
+5). Rotor machines
+6). Steganography
+7). The Swahile Angle
+8). Shift
+9). Affine
+10). Sherlock Holmes
+11). ADFGX
+12). Binary Numbers & ASCII
+13). One Time Pads
+14). Pseudo random bit generator
+15). LFSR Sequences
+16). Enigma
+
+
+****************************************** OS LAB JANUARY 16 ******************************************
+
+Implement fork in such a way that parent process will print "I'm parent" and child process will print "I'm born".
+
+a). without synchonisation.
+b). with synchronisation by providing proper delays.

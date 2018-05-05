@@ -1,0 +1,33 @@
+$define max 200000
+$define f(i,j,k)  i+j+j*k
+macro1 MACRO i,j,k
+	temp i
+	temp j
+
+	
+	j + k
+	MEND
+inr MACRO p
+	mov eax , p
+	add eax , 1
+	mov p , eax
+	
+	MEND
+
+int p = max
+
+
+
+result = f(1,5,9)
+push esp
+inr ebx
+pop ebp
+
+   
+
+macro1 1,2,3
+
+
+
+
+

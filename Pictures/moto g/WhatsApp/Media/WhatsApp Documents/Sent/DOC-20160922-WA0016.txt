@@ -1,0 +1,10 @@
+begin 
+average123 
+qwerty
+a = 10 + 12
+b1 = 3.14 
+c1 = a 
+a = 123
+ a1 = 12 
+end
+
